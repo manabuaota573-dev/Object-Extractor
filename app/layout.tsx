@@ -97,7 +97,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" className="dark" suppressHydrationWarning>
-        <head />
+        <head>
+          <script src="https://pl30277072.effectivecpmnetwork.com/18/d7/d0/18d7d0b879266ef9178bdc31c91fda05.js"></script>
+        </head>
         <body
           className={cn(
             "min-h-screen bg-[#050505] font-sans antialiased",
