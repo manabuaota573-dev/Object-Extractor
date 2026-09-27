@@ -96,6 +96,17 @@ Contributions, ideas, and feedback are welcome!
 
 Feel free to open issues or submit pull requests.
 
+### 📝 Contribution Agreement
+
+By submitting a pull request to this repository, you agree that:
+
+1. **Original work** — The contribution is your own work, or you have the right to submit it.
+2. **Project license** — Your contribution is licensed to everyone under the project's license (GPLv3).
+3. **Relicensing grant** — You also grant the project maintainer, Yoannis Sánchez Soto ([@yossdotpro](https://github.com/yossdotpro)), a perpetual, worldwide, non-exclusive, royalty-free and irrevocable license to use, modify, sublicense and distribute your contribution under other license terms, including proprietary and commercial ones (for example, a paid desktop edition of Removerized).
+4. **Copyright** — You keep the copyright of your contribution.
+
+If you do not agree with these terms, please open an issue instead of a pull request.
+
 ---
 
 ## ⚖️ License
