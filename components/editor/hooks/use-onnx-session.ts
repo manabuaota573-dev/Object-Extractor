@@ -151,7 +151,7 @@ export const useOnnxSession = (
 
       return blob
     },
-    [getOrCreateSession, ortRef]
+    [getOrCreateSession]
   )
 
   /**
@@ -211,7 +211,7 @@ export const useOnnxSession = (
 
       return blob
     },
-    [getOrCreateSession, ortRef]
+    [getOrCreateSession]
   )
 
   return {

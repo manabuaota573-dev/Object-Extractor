@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 
 type SpinningNumberProps = React.DetailedHTMLProps<
@@ -18,8 +18,28 @@ export const SpinningNumber = ({
   ...props
 }: SpinningNumberProps) => {
   const ref = useRef<HTMLDivElement>(null)
-  const splitted = useMemo(() => value.toString().split(""), [value])
-  const lineHeight = 24
+
+  const [splitted, setSplitted] = useState(value.toString().split(""))
+  const [lineHeight, setLineHeight] = useState(0)
+
+  useEffect(() => {
+    const element = ref.current
+    if (element) {
+      const tempElement = (globalThis as any).document.createElement("span")
+      tempElement.style.fontSize = (globalThis as any).window.getComputedStyle(element).fontSize
+      tempElement.style.fontFamily = (globalThis as any).window.getComputedStyle(element).fontFamily
+      tempElement.style.lineHeight = (globalThis as any).window.getComputedStyle(element).lineHeight;
+      tempElement.textContent = "dummy";
+      (element as any).appendChild(tempElement)
+      const height = tempElement.offsetHeight
+        (element as any).removeChild(tempElement)
+      setLineHeight(height)
+    }
+  }, [lineHeight])
+
+  useEffect(() => {
+    setSplitted(value.toString().split(""))
+  }, [value])
 
   return (
     <div className={className} {...props}>
@@ -36,7 +56,7 @@ export const SpinningNumber = ({
             <SingleNumber
               key={i}
               index={i}
-              number={Number(num)}
+              number={+num}
               lineHeight={lineHeight}
               animationDuration={animationDuration}
             />
@@ -60,8 +80,12 @@ export const SingleNumber = ({
   lineHeight,
   animationDuration,
 }: SingleNumberProps) => {
-  const nums = useMemo(() => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [])
-  const y = -1 * nums.indexOf(number) * lineHeight
+  const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const [y, setY] = useState(-1 * nums.indexOf(number) * lineHeight)
+
+  useEffect(() => {
+    setY(-1 * nums.indexOf(number) * lineHeight)
+  }, [number, lineHeight])
 
   return (
     <motion.div
